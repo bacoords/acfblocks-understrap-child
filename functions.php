@@ -106,3 +106,27 @@ function acf_blocks_register() {
 	register_block_type( __DIR__ . '/acf-blocks/about-product/block.json' );
 }
 add_action( 'init', 'acf_blocks_register' );
+
+
+/**
+ * Override the default excerpt link.
+ *
+ * @param [type] $post_excerpt
+ * @return void
+ */
+function understrap_all_excerpts_get_more_link( $post_excerpt ) {
+	if ( is_admin() || ! get_the_ID() ) {
+		return $post_excerpt;
+	}
+
+	$permalink = esc_url( get_permalink( (int) get_the_ID() ) ); // @phpstan-ignore-line -- post exists
+
+	// Trim post_excerpt to 15 words.
+	$post_excerpt = wp_trim_words( $post_excerpt, 15, '...' );
+
+	return $post_excerpt . ' <p><a class="btn btn-outline-primary btn-sm mt-4 understrap-read-more-link" href="' . $permalink . '">' . __(
+		'Read More...',
+		'understrap'
+	) . '<span class="screen-reader-text"> from ' . get_the_title( get_the_ID() ) . '</span></a></p>';
+
+}

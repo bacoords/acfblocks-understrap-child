@@ -3,5 +3,16 @@
 // Just copy a variable from src/sass/assets/bootstrap5/_variables.scss, paste it here and edit the value.
 
 
-$purple: #5533ff; // Thats a sample how you could change a BootStrap variable.
-$primary: $purple;  // Once we've changed the value, we'll also make it the primary brand color.
+$blue: #003353; // Thats a sample how you could change a BootStrap variable.
+
+$black: #1b1b1f;
+$white: #fbfbf5;
+
+$primary: $blue;  // Once we've changed the value, we'll also make it the primary brand color.
+$light: #e3e3dd;
+
+
+
+$accordion-button-active-bg:      $white;
+$accordion-button-active-color:   $black;
+$accordion-button-focus-box-shadow: none;

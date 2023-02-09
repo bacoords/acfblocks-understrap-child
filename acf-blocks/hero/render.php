@@ -12,6 +12,7 @@
  */
 
 $class_name = 'acf-block-hero';
+$class_row  = 'row py-5 align-items-center';
 
 if ( ! empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
@@ -30,7 +31,7 @@ if ( ! empty( $block['textColor'] ) ) {
 }
 
 if ( $block['fullHeight'] ) {
-	$class_name .= ' vh-100';
+	$class_row .= ' vh-100';
 }
 
 
@@ -41,17 +42,17 @@ if ( $block['fullHeight'] ) {
 
 	<div class="container">
 
-		<div class="row py-5">
+		<div class="<?php echo esc_attr( $class_row ); ?>">
 
 			<div class="col-12 col-md-6">
 				<span>Home &gt; <?php echo get_the_title(); ?></span>
-				<h1><?php the_field( 'headline' ); ?></h1>
+				<h1 class="mb-md-5"><?php the_field( 'headline' ); ?></h1>
 				<p class="lead"><?php the_field( 'content' ); ?></p>
 			</div>
 
 			<div class="col-12 col-md-6">
 				<?php $image = get_field( 'image' ); ?>
-				<?php echo wp_get_attachment_image( $image ); ?>
+				<?php echo wp_get_attachment_image( $image, 'full' ); ?>
 			</div>
 
 		</div>

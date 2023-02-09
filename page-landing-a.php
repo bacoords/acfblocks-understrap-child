@@ -17,51 +17,37 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = get_theme_mod( 'understrap_container_type' );
+$container = ''; // get_theme_mod( 'understrap_container_type' );
 
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<div class="wrapper" id="page-landing-a-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
-		<div class="row">
+		<main class="site-main" id="main">
 
 			<?php
-			// Do the left sidebar check and open div#primary.
-			get_template_part( 'global-templates/left-sidebar-check' );
-			?>
+			while ( have_posts() ) {
+				the_post();
 
-			<main class="site-main" id="main">
+				// get_template_part( 'loop-templates/content', 'page' );
 
-				<?php
-				while ( have_posts() ) {
-					the_post();
-					// get_template_part( 'loop-templates/content', 'page' );
-
-					if ( have_rows( 'flexible_content' ) ) {
-						while ( have_rows( 'flexible_content' ) ) {
-							the_row();
-							get_template_part( 'acf-rows/row', get_row_layout() );
-						}
-					}
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
+				if ( have_rows( 'flexible_content' ) ) {
+					while ( have_rows( 'flexible_content' ) ) {
+						the_row();
+						get_template_part( 'acf-rows/row', get_row_layout() );
 					}
 				}
-				?>
 
-			</main>
-
-			<?php
-			// Do the right sidebar check and close div#primary.
-			get_template_part( 'global-templates/right-sidebar-check' );
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) {
+					comments_template();
+				}
+			}
 			?>
 
-		</div><!-- .row -->
-
+		</main>
 
 	</div><!-- #content -->
 

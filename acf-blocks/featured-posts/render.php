@@ -1,11 +1,11 @@
-<section class="acf-row-featured-posts bg-light">
+<section class="acf-row-featured-posts bg-light rounded">
 
-	<div class="container py-5">
+	<div class="container pt-5 pb-3">
 
 		<div class="row">
 
 			<div class="col-12">
-				<h2><?php the_field( 'headline' ); ?></h2>
+				<h2 class="mb-md-4"><?php the_field( 'headline' ); ?></h2>
 			</div>
 
 			<?php
