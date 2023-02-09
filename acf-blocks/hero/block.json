@@ -13,7 +13,7 @@
 	},
     "supports": {
 		"html": false,
-		"align": ["wide", "full"],
+		"align": ["full"],
 		"color": {
 			"background": true,
 			"text": true,
