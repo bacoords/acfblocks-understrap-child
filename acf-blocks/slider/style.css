@@ -1,0 +1,7 @@
+.acf-block-slider-item{
+	height: 300px;
+	width: 25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

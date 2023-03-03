@@ -1,0 +1,20 @@
+{
+	"name": "slider",
+	"title": "Slider",
+	"description": "A social proof slider",
+	"style": [ "flickicity", "file:./style.css" ],
+	"editorStyle": [ "file:./editor-style.css" ],
+	"viewScript": ["flickicity","slider"],
+    "category": "formatting",
+    "icon": "format-gallery",
+    "apiVersion": 2,
+    "keywords": ["slider", "social", "gallery"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "render.php"
+	},
+    "supports": {
+		"html": false,
+		"align": false
+	}
+}

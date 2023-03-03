@@ -2,3 +2,12 @@
 #no-title-page-wrapper {
 	padding-top: 0;
 }
+
+// Slider Row
+.acf-row-slider-item{
+	height: 300px;
+	width: 25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

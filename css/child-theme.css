@@ -15988,6 +15988,14 @@ figure.woocommerce-product-gallery__wrapper {
   padding-top: 0;
 }
 
+.acf-row-slider-item {
+  height: 300px;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .has-blue-color,
 .has-blue-color:visited {
   color: #003353;

@@ -1,0 +1,10 @@
+.acf-block-slider-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-basis: 25%;
+}
+
+.acf-block-slider-wrapper .acf-block-slider-item:nth-child(n+5) {
+	display: none;
+}
