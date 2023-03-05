@@ -9,6 +9,8 @@
  *          This is either the post ID currently being displayed inside a query loop,
  *          or the post ID of the post hosting this block.
  * @param   array $context The context provided to the block by the post or it's parent block.
+ *
+ * @package UnderstrapChild
  */
 
 $class_name = 'acf-block-hero';
@@ -33,9 +35,6 @@ if ( ! empty( $block['textColor'] ) ) {
 if ( $block['fullHeight'] ) {
 	$class_row .= ' vh-100';
 }
-
-
-// var_dump( $block );
 ?>
 
 <section class="<?php echo esc_attr( $class_name ); ?>">
@@ -45,7 +44,7 @@ if ( $block['fullHeight'] ) {
 		<div class="<?php echo esc_attr( $class_row ); ?>">
 
 			<div class="col-12 col-md-6">
-				<span>Home &gt; <?php echo get_the_title(); ?></span>
+				<span>Home &gt; <?php echo esc_html( get_the_title() ); ?></span>
 				<h1 class="mb-md-5"><?php the_field( 'headline' ); ?></h1>
 				<p class="lead"><?php the_field( 'content' ); ?></p>
 			</div>
