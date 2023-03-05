@@ -29,7 +29,6 @@ add_action( 'wp_enqueue_scripts', 'understrap_remove_scripts', 20 );
  */
 function theme_enqueue_styles() {
 
-
 	// Get the theme data.
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
@@ -38,14 +37,14 @@ function theme_enqueue_styles() {
 	// Grab asset urls.
 	$theme_styles  = "/css/child-theme{$suffix}.css";
 	$theme_scripts = "/js/child-theme{$suffix}.js";
-	
+
 	$css_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_styles );
 
 	wp_enqueue_style( 'child-understrap-styles', get_stylesheet_directory_uri() . $theme_styles, array(), $css_version );
 	wp_enqueue_script( 'jquery' );
-	
+
 	$js_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . $theme_scripts );
-	
+
 	wp_enqueue_script( 'child-understrap-scripts', get_stylesheet_directory_uri() . $theme_scripts, array(), $js_version, true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -56,10 +55,6 @@ function theme_enqueue_styles() {
 	wp_register_script( 'flickicity', 'https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js', array(), '2', true );
 	wp_register_script( 'slider', get_stylesheet_directory_uri() . '/js/slider.js', array(), '2', true );
 
-	// Enqueue our slider scripts.
-	// wp_enqueue_style( 'flickicity' );
-	// wp_enqueue_script( 'flickicity' );
-	// wp_enqueue_script( 'slider' );
 }
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 
@@ -91,7 +86,11 @@ add_filter( 'theme_mod_understrap_bootstrap_version', 'understrap_default_bootst
 
 
 
-
+/**
+ * Enqueue block editor assets.
+ *
+ * @return void
+ */
 function understrap_enqueue_block_editor_assets() {
 	wp_enqueue_script( 'remove-blocks', get_stylesheet_directory_uri() . '/js/editor.js', array( 'wp-blocks', 'wp-dom', 'wp-edit-post' ), filemtime( get_stylesheet_directory() . '/js/editor.js' ), true );
 }
@@ -128,8 +127,8 @@ add_action( 'init', 'acf_blocks_register' );
 /**
  * Override the default excerpt link.
  *
- * @param [type] $post_excerpt
- * @return void
+ * @param string $post_excerpt The post excerpt.
+ * @return string
  */
 function understrap_all_excerpts_get_more_link( $post_excerpt ) {
 	if ( is_admin() || ! get_the_ID() ) {
