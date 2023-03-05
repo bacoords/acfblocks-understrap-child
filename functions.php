@@ -120,7 +120,6 @@ add_action( 'customize_controls_enqueue_scripts', 'understrap_child_customize_co
 function acf_blocks_register() {
 	register_block_type( __DIR__ . '/acf-blocks/hero/block.json' );
 	register_block_type( __DIR__ . '/acf-blocks/featured-posts/block.json' );
-	register_block_type( __DIR__ . '/acf-blocks/about-product/block.json' );
 	register_block_type( __DIR__ . '/acf-blocks/slider/block.json' );
 }
 add_action( 'init', 'acf_blocks_register' );
