@@ -31,8 +31,6 @@ $container = ''; // get_theme_mod( 'understrap_container_type' );
 			while ( have_posts() ) {
 				the_post();
 
-				// get_template_part( 'loop-templates/content', 'page' );
-
 				if ( have_rows( 'flexible_content' ) ) {
 					while ( have_rows( 'flexible_content' ) ) {
 						the_row();
